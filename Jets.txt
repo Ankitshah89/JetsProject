@@ -1,0 +1,5 @@
+FighterJet, F-15, 900, 5000, 100000000
+FighterJet, F-22, 800, 7000, 200000000
+CargoJet, Boeing-747, 400, 2000, 10000000
+CargoJet, Airbus-115, 300, 3000, 9000000
+OtherType, Abc-123 , 200, 4000, 1500000
