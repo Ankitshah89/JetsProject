@@ -41,7 +41,7 @@ public class AirField {
 				} else if (type.contentEquals("CargoJet")) {
 					jets.add(new CargoPlane(type, model, range, speed, price));
 
-				} else if (type.contentEquals("OtherType")) {
+				} else if (type.contentEquals("PassengerJet")) {
 					jets.add(new otherType(type, model, range, speed, price));
 				}
 
@@ -59,15 +59,19 @@ public class AirField {
 	// This method displays the main menu
 	public void displayMenu() {
 
-		System.out.println("1. List fleet");
-		System.out.println("2. Fly all Jets");
-		System.out.println("3. View Fastest Jet");
-		System.out.println("4. View Jet with Longest Range");
-		System.out.println("5. Load All Cargo Jets");
-		System.out.println("6. Dogfight !!");
-		System.out.println("7. Add a Jet To Fleet");
-		System.out.println("8. Remove a jet from Fleet");
-		System.out.println("9. Quit");
+		System.out.println("*********************************************");
+		System.out.println("*                                           *");
+		System.out.println("*\t1. List fleet                       *");
+		System.out.println("*\t2. Fly all Jets                     *");
+		System.out.println("*\t3. View Fastest Jet                 *");
+		System.out.println("*\t4. View Jet with Longest Range      *");
+		System.out.println("*\t5. Load All Cargo Jets              *");
+		System.out.println("*\t6. Dogfight !!                      *");
+		System.out.println("*\t7. Add a Jet To Fleet               *");
+		System.out.println("*\t8. Remove a jet from Fleet          *");
+		System.out.println("*\t9. Quit                             *");
+		System.out.println("*                                           *");
+		System.out.println("*********************************************");
 
 	}
 
@@ -151,7 +155,7 @@ public class AirField {
 		System.out.println();
 		System.out.println("1. Fighter Jet");
 		System.out.println("2. Cargo Plane");
-		System.out.println("3. Other Types");
+		System.out.println("3. Passenger Jet");
 		System.out.println("4. Quit");
 		System.out.println();
 		System.out.print("Choose : ");
@@ -191,12 +195,14 @@ public class AirField {
 				jet = new CargoPlane("Cargo", model, range, speed, price);
 				break;
 			case 3:
-				jet = new otherType("OtherType", model, range, speed, price);
+				jet = new otherType("PassengerJet", model, range, speed, price);
 				break;
 			}
 			if (jet != null) {
 				jets.add(jet);
 			}
+			displayJets();
+			System.out.println();
 		} while (keepGoing);
 	}
 
@@ -220,4 +226,16 @@ public class AirField {
 		displayJets();
 
 	}
+
+	public void speedInMach() {
+		for (Jet jet : jets) {
+			if (jet instanceof FighterJet) {
+				FighterJet fighterjet = ((FighterJet) jet);
+				System.out.println("Mach:");
+				fighterjet.getSpeedInMach();
+			}
+
+		}
+	}
+
 }

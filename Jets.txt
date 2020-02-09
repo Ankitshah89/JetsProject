@@ -1,5 +1,12 @@
-FighterJet, F-15, 900, 5000, 100000000
-FighterJet, F-22, 800, 7000, 200000000
-CargoJet, Boeing-747, 400, 2000, 10000000
-CargoJet, Airbus-115, 300, 3000, 9000000
-OtherType, Abc-123 , 200, 4000, 1500000
+FighterJet, MiG-29, 890, 1500, 23800000
+FighterJet, F-16, 339, 921, 29010000
+FighterJet, EA-18G, 1458, 2070, 78000000
+FighterJet, F-22 Raptor, 1841, 1500, 152000000
+CargoJet, Kawasaki C-2, 4700, 570, 136000000
+CargoJet, C-130J, 2071, 400, 51000000
+CargoJet, A-400M Atlas, 2100, 485, 120000000
+CargoJet, Antonov An-22, 3100, 460, 250000000
+PassengerJet, Airbus A380-800, 9445, 562, 403000000
+PassengerJet, Boeing 747, 9210, 568, 357000000
+PassengerJet, Boeing 777 , 6920, 590, 320000000
+PassenJet, Concorde, 4490, 1340, 200000000

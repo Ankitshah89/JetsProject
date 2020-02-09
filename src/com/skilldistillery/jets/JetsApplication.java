@@ -42,11 +42,11 @@ public class JetsApplication {
 				System.out.println();
 				break;
 			case 3:
-				System.out.println("The fastest jet is  (** " + airfield.fastestJet() + " **)");
+				System.out.println("The fastest jet is " + airfield.fastestJet());
 				System.out.println();
 				break;
 			case 4:
-				System.out.println("The jet with the longest range is  (** " + airfield.longestRange() + " **)");
+				System.out.println("The jet with the longest range is " + airfield.longestRange());
 				System.out.println();
 				break;
 			case 5:

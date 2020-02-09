@@ -1,6 +1,8 @@
 package com.skilldistillery.jets;
 
+import java.text.*;
 import java.text.DecimalFormat;
+import java.util.*;
 
 public abstract class Jet {
 	// Fields
@@ -27,14 +29,15 @@ public abstract class Jet {
 	public void fly() {
 		DecimalFormat df = new DecimalFormat("#.##");
 		double flightFormula = range / speed;
-		String flightFormulaFormat = df.format(flightFormula);
-		System.out.println(this.getModel() + " is flying with " + flightFormulaFormat + " hours left");
-	};
+		int hours = (int) ((flightFormula * 60) / 60);
+		int minutes = (int) ((flightFormula * 60) % 60);
+		System.out.println(this.getModel() + " is flying with " + hours + " hours and " + minutes + " minutes left.");
+	}
 
 	// Get the speed in Mach
 	public double getSpeedInMach() {
-		return 0;
-
+		double speedInMach = (speed / 761.2);
+		return Math.round(speedInMach * 100.0) / 100.0;
 	}
 
 	// Getters and Setters
@@ -80,8 +83,11 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet Type: " + type + ",   Model: " + model + ",   Range: " + range + ",   Speed: " + speed
-				+ ",   Price: " + price;
+
+		return String.format("%-20s", "Jet Type: " + type) + String.format("%25s", "Model: " + model)
+				+ String.format("%15s", "Range: " + range) + "\t\tSpeed: " + speed + "\t\tPrice: " + price
+				+ "\t\tMach: " + this.getSpeedInMach();
+
 	}
 
 	@Override
