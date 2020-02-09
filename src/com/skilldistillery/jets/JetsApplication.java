@@ -69,6 +69,9 @@ public class JetsApplication {
 				System.out.println("GOODBYE !");
 				keepGoing = false;
 				break;
+			default:
+				System.err.println("Please enter a valid input (1-9)");
+				break;
 
 			}
 		} while (keepGoing);

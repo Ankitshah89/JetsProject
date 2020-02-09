@@ -9,4 +9,4 @@ CargoJet, Antonov An-22, 3100, 460, 250000000
 PassengerJet, Airbus A380-800, 9445, 562, 403000000
 PassengerJet, Boeing 747, 9210, 568, 357000000
 PassengerJet, Boeing 777 , 6920, 590, 320000000
-PassenJet, Concorde, 4490, 1340, 200000000
+PassengerJet, Concorde, 4490, 1340, 200000000

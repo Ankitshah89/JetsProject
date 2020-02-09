@@ -151,7 +151,7 @@ public class AirField {
 	// This method displays a menu which allows the user to add more to the fleet of
 	// jets.
 	public void displayAddFleetMessage() {
-		System.out.println("Enter a type you want to add to the field (1-5)");
+		System.out.println("Enter a type you want to add to the field (1-4)");
 		System.out.println();
 		System.out.println("1. Fighter Jet");
 		System.out.println("2. Cargo Plane");
@@ -165,38 +165,71 @@ public class AirField {
 
 	// This method add the user input fleet to the already existing fleet of jets.
 	public void addJetToFleet() {
+		int range = 0;
+		double speed = 0;
+		long price = 0;
+		int choice = 0;
 		boolean keepGoing = true;
+		boolean exceptionTrue = false;
+
+		// choice (1-3); 4 quit , other- redisplay the option
 
 		do {
 			displayAddFleetMessage();
-			int choice = kb.nextInt();
-
+			choice = kb.nextInt();
 			if (choice == 4) {
 				System.out.println("Thanks for the input !");
 				break;
 			}
-
+			if (choice > 4 || choice < 1) {
+				System.err.println("Invalid Choice !");
+				System.out.println();
+				continue;
+			}
 			System.out.print("Enter the Jet model: ");
 			String model = kb.next();
-			System.out.print("Enter the range: ");
-			int range = kb.nextInt();
-			System.out.print("Enter the speed: ");
-			double speed = kb.nextDouble();
-			System.out.print("Enter the price: ");
-			long price = kb.nextLong();
+			try {
+				System.out.print("Enter the range for " + model + " : ");
+				range = kb.nextInt();
+				System.out.print("Enter the speed for " + model + " : ");
+				speed = kb.nextDouble();
+				System.out.print("Enter the price for " + model + " : ");
+				price = kb.nextLong();
+			} catch (InputMismatchException e) {
+				System.err.println("Wrong input format");
+				exceptionTrue = true;
+			} finally {
+				if (exceptionTrue) {
 
+					kb.nextLine();
+					System.out.println("Please enter again : ");
+					System.out.print("Please enter the range again (Integer) : ");
+					range = kb.nextInt();
+					System.out.print("Please enter the speed agian (Double) : ");
+					speed = kb.nextDouble();
+					System.out.print("Please enter the price again (Long) : ");
+					price = kb.nextLong();
+				}
+			}
 			Jet jet = null;
 
+			System.out.println("from 1");
+			System.out.println("you entered choice = " + choice);
 			switch (choice) {
 			case 1:
+				System.out.println("inside case 1 ");
 				jet = new FighterJet("Fighter Jet", model, range, speed, price);
 				break;
 			case 2:
 				jet = new CargoPlane("Cargo", model, range, speed, price);
 				break;
 			case 3:
+				System.out.println("from 3");
 				jet = new otherType("PassengerJet", model, range, speed, price);
 				break;
+			default:
+				System.out.println("from 2");
+				System.err.print("inside default Please Enter the correct choice (1-4) : ");
 			}
 			if (jet != null) {
 				jets.add(jet);
@@ -222,8 +255,12 @@ public class AirField {
 		System.out.println();
 
 		int removedJet = kb.nextInt();
-		jets.remove(removedJet - 1);
-		displayJets();
+		if (removedJet > jets.size()) {
+			System.err.println("The list does not have that number");
+		} else {
+			jets.remove(removedJet - 1);
+			displayJets();
+		}
 
 	}
 
