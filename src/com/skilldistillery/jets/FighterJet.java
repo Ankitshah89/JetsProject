@@ -17,3 +17,4 @@ public class FighterJet extends Jet implements CombatReady {
 	}
 
 }
+   
