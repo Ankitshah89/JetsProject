@@ -9,7 +9,7 @@ Jets project is primarily  designed to utilize and implement the various concept
  _Polymorphism_ , _Encapsulation_ .  
   
 This application loads a text file which is composed of various types of aircrafts with their attributes(model, range, speed, price, type). Each aircraft is created as an **Object** and stored in an **ArrayList** in a class called Airfield. There are different categories of aircrafts or jets :  _FighterJets_  ,  _CargoJets_  and  _PassengerJets_ .
-Each of these types have their own **class** and these are also **subclasses** of and **abstract class** called Jets. I implemented an **interface** to group methods for specific classes and not duplicate code.  
+Each of these types have their own **class**, **subclasses**, and a **abstract class** called Jets. I implemented an **interface** to group methods for specific classes and not duplicate code.  
   
 The main method (JetApplication) calls the run method where the user is prompted with a menu of option to select from:  
   
